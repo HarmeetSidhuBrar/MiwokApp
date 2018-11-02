@@ -10,6 +10,10 @@ public class Word {
     private String mDefaultTranslation;
     /** Miwok translation for the word */
     private String mMiwokTranslation;
+    /**
+     *
+     */
+    private int mAudioResourceId;
     /** Images for each Word. */
     private int mImageResourceId = NO_IMAGE_PROVIDED;
 
@@ -20,10 +24,13 @@ public class Word {
      * @param defaultTranslation is the word in a language that the user is already familiar with
      *                           (such as English)
      * @param miwokTranslation is the word in the Miwok language
+     * @param audioResourceId is the audio resource id for each word.
+     *
      */
-    public Word(String defaultTranslation, String miwokTranslation) {
+    public Word(String defaultTranslation, String miwokTranslation, int audioResourceId) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
+        mAudioResourceId = audioResourceId;
     }
 
     /**
@@ -33,11 +40,13 @@ public class Word {
      *                           (such as English)
      * @param miwokTranslation is the word in the Miwok language.
      * @param imageResourceId is resource id for images.
+     * @param audioResourceId is the audio resource id for each word.
      */
-    public Word(String defaultTranslation,String miwokTranslation , int imageResourceId){
+    public Word(String defaultTranslation,String miwokTranslation , int imageResourceId, int audioResourceId){
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
         mImageResourceId = imageResourceId;
+        mAudioResourceId = audioResourceId;
 
     }
     /**
@@ -54,6 +63,12 @@ public class Word {
     }
 
     /**
+     * Get audio resource file id.
+     *
+     */
+    public int getmAudioResourceId(){return mAudioResourceId;}
+
+    /**
      * get the images for the word.
      */
     public int getmImageResourceId (){ return mImageResourceId;}
@@ -65,4 +80,6 @@ public class Word {
     public boolean hasImage (){
         return mImageResourceId != NO_IMAGE_PROVIDED;
     }
+
+
 }
